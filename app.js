@@ -6,6 +6,17 @@ const port = 5000; // Connected to post 5000
 app.use(express.static("public"));  //
 app.use(express.json()); // Connect to the Body in PostMan
 
+const {
+  createRecipeFunction
+  // deleteAstronautById,
+  // updateAstronautById,
+  // getAstronautsByName,
+  // replaceAstronautById,
+  // getAstronauts,
+  // createAstronaut,
+  // getAstronautById,
+} = require('./db/scripts/uploadRecipes.js');
+
 const data = [
   {
     title: "Beans on Toast",
@@ -32,16 +43,20 @@ app.listen(port, () => {
 }
 );
 
-app.get("/recipes", function (req, res) {
-  res.json({success:true, payload:data });
+app.get("/api/recipes", function (req, res) {
+  res.json({success: true, payload: data });
 });
 
-app.post("/recipes", async (req, res)=>{
+app.post("/api/recipes", async (req, res)=>{
     const recipe = req.body;
-    data.push(recipe)
+    //data.push(recipe);
+    const createRecipe = await createRecipeFunction(recipe);
+    res.json({payload: createRecipe});
     console.log(recipe); 
     console.log(data); 
   });
+
+
 
 // res.sendfile - so when we handle this get recipe request it displays it on the HTML page
 // maybe our directory name
