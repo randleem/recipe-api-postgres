@@ -1,10 +1,10 @@
-const path = require("path");
-const express = require("express");
-const app = express();
-const port = 5000;
+const path = require("path");// Path is an npm module
+const express = require("express"); // Express module NPM
+const app = express();// calling the express Module, framework that interacts with server and handles requests
+const port = 5000; // Connected to post 5000
 
-app.use(express.static("public"));
-app.use(express.json());
+app.use(express.static("public"));  //
+app.use(express.json()); // Connect to the Body in PostMan
 
 const data = [
   {
@@ -18,6 +18,35 @@ const data = [
   }
 ];
 
-app.get("/", function (req, res) {
-  res.sendFile(path.join(`${__dirname}/views/index.html`));
+// CREATE a database that ahs name recipes
+// colum names = (title, ingredients, instructions, image)
+// Each recipe is a row in the database so will need to be added with VAlUE
+
+
+app.get("/recipes", function (req, res) {
+  // res.sendFile(path.join(`hacktathons-servers-emzbel/views/index.html`));
+  res.send(`Hello Chefs`);
+  // dirname? hackathons-servers-emzbel
+  // 
 });
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+}
+);
+// res.sendfile - so when we handle this get recipe request it displays it on the HTML page
+// maybe our directory name
+// sending a file to the localhost page - our server
+// get to get a recipe out - which answers a front end fetch request
+// 
+
+// app.get(`/astronauts`, async (req, res)=>{
+//   const  astronauts = await getAstronauts();
+//   res.json({success:true, payload:astronauts });
+// });
+
+// app.post("/recipes", function (req, res) {
+
+// });
+// post is to create a new recipe - response to data inout into the front end fields on browser
+// Links to SQL function to add data to the table

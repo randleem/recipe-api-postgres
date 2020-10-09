@@ -1,4 +1,4 @@
-const url = "/api";
+const url = "/api"; // put in our API - local host path
 
 const recipesSection = document.querySelector("#recipes");
 const getRecipeButton = document.querySelector("#get-recipes");
@@ -30,6 +30,7 @@ function handleSubmit(event) {
   createRecipe();
 }
 
+// sending recipe to server to be added too our database
 async function createRecipe() {
   console.log(gatherFormData());
   const response = await fetch(`${url}/recipes`, {
@@ -37,7 +38,7 @@ async function createRecipe() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(gatherFormData())
   });
-  const data = await response.json();
+  const data = await response.json(); // we need to send a reasponse of some kind that acknowledges weve recipeved the input
   console.log(data);
 }
 
@@ -59,7 +60,8 @@ function handleClick(event) {
   event.preventDefault();
   getRecipes();
 }
-
+// Recipes are stored in our Database - back end
+// this is a function to request these recipes 
 async function getRecipes() {
   const response = await fetch(`${url}/recipes`);
   const { payload } = await response.json();
