@@ -23,17 +23,26 @@ const data = [
 // Each recipe is a row in the database so will need to be added with VAlUE
 
 
-app.get("/recipes", function (req, res) {
-  // res.sendFile(path.join(`hacktathons-servers-emzbel/views/index.html`));
-  res.send(`Hello Chefs`);
-  // dirname? hackathons-servers-emzbel
-  // 
+app.get("/", function (req, res) {
+  res.sendFile(path.join(`${__dirname}/views/index.html`)); 
 });
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 }
 );
+
+app.get("/recipes", function (req, res) {
+  res.json({success:true, payload:data });
+});
+
+app.post("/recipes", async (req, res)=>{
+    const recipe = req.body;
+    data.push(recipe)
+    console.log(recipe); 
+    console.log(data); 
+  });
+
 // res.sendfile - so when we handle this get recipe request it displays it on the HTML page
 // maybe our directory name
 // sending a file to the localhost page - our server

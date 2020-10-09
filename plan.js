@@ -4,7 +4,6 @@
     // Express is a framework  that enables us to interact with ou local servier and handles HTTP requests sent to it
     // Express is in package.json - 
         // GET RESPONSE - 
-            // Directory - hackathons-servers-emzbel - pathname to HTML 
             // So it will display the recipes once a SELCT FROM query has been sent
 
 /// When user input a recipe -> FRONT END
