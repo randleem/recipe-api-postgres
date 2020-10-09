@@ -7,14 +7,8 @@ app.use(express.static("public"));  //
 app.use(express.json()); // Connect to the Body in PostMan
 
 const {
-  createRecipeFunction
-  // deleteAstronautById,
-  // updateAstronautById,
-  // getAstronautsByName,
-  // replaceAstronautById,
-  // getAstronauts,
-  // createAstronaut,
-  // getAstronautById,
+  createRecipeFunction,
+  getRecipeFunction
 } = require('./db/scripts/uploadRecipes.js');
 
 const data = [
@@ -43,8 +37,10 @@ app.listen(port, () => {
 }
 );
 
-app.get("/api/recipes", function (req, res) {
-  res.json({success: true, payload: data });
+app.get("/api/recipes", async function (req, res) {
+  const getRecipes = await getRecipeFunction();
+  console.log(getRecipes);
+  res.json({payload: getRecipes });
 });
 
 app.post("/api/recipes", async (req, res)=>{
