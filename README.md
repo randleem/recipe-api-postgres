@@ -23,7 +23,7 @@ As a bonus task we created some stling for our App with CSS
 1. Clone the repository
 
 ```
-https://github.com/randleem/dad-joke.git
+https://github.com/randleem/recipe-api-postgres.git
 ```
 
 2. Navigate to the repo
