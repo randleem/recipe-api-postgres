@@ -3,7 +3,7 @@
 *9th October 2020*
 *Week 3 at the [School of Code](https://www.schoolofcode.co.uk)*
 
-This was our third week Friday hackathon at the [School of Code](https://www.schoolofcode.co.uk) where we were first introduced to databases, PostgreSQL and Heroku. 
+This was our third week Friday hackathon at the [School of Code](https://www.schoolofcode.co.uk) where we were first introduced to Node.js, express, databases, PostgreSQL and Heroku. 
 
 Isabel Holland @hey-irh (my paired-programming partner for the week) were tasked with fixing code bugs and setting up and connecting our recipe display app to a heroku database with schemas created with PostgreSQL.
 
