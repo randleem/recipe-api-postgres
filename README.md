@@ -28,4 +28,4 @@ https://github.com/randleem/recipe-api-postgres.git
 
 2. Navigate to the repo
 
-3. View the HTML as a webpage by copying the relative path
+3. View the HTML as a webpage by copying the HTML path
